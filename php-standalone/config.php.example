@@ -1,0 +1,10 @@
+<?php
+define('AG_API_URL', 'https://script.google.com/macros/s/REPLACE-WITE-YOUR-URL/exec');
+define('AG_API_KEY', 'YOUR-API-KEY');
+
+define('CACHE_TTL', 60);
+
+define('KIOSK_TOKEN', 'CHANGE_ME_LONG_RANDOM'); // empty string to disable
+
+define('DEFAULT_LIMIT', 10);
+define('DEFAULT_PERIOD', 'week'); // all|week|month|year

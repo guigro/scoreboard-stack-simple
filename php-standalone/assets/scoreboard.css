@@ -1,0 +1,123 @@
+/* Premium responsive scoreboard (standalone PHP) — Score only */
+
+:root{ --ag-radius: 16px; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Arial, sans-serif;
+  background: #0b0f14;
+  color: #fff;
+}
+
+.container{ max-width: 1100px; margin: 24px auto; padding: 0 16px 40px; }
+
+.header{ display:flex; align-items:baseline; justify-content:space-between; gap: 16px; margin-bottom: 16px; }
+.header h1{ margin:0; font-size: 28px; letter-spacing: .2px; }
+.muted{ color: rgba(255,255,255,.65); font-size: 14px; }
+
+.panel{
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--ag-radius);
+  background: rgba(255,255,255,.06);
+  overflow: hidden;
+}
+.panel-title{ padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.12); font-weight: 800; }
+
+.ag-top3{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+}
+
+.ag-topcard{
+  display:flex;
+  gap: 12px;
+  padding: 14px 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,.08);
+}
+.ag-topcard__left{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-width: 72px;
+}
+.ag-medal-emoji{
+  font-size: 34px;
+  line-height: 1;
+  font-family:
+    system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",
+    "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
+}
+.ag-rank{ margin-top: 6px; font-weight: 900; opacity: .75; }
+.ag-team{ font-size: 18px; font-weight: 900; line-height: 1.15; margin-bottom: 10px; }
+.ag-stats{ display:flex; gap: 14px; flex-wrap: wrap; }
+.ag-stat{
+  display:flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);
+}
+.ag-stat__label{ opacity:.7; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.ag-stat__value{ font-weight: 900; font-variant-numeric: tabular-nums; }
+
+.ag-rest{ padding: 0 0 6px 0; }
+
+.ag-table{ width:100%; border-collapse:collapse; font-size:16px; }
+.ag-table thead th{
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  white-space: nowrap;
+  color: rgba(255,255,255,.75);
+}
+.ag-table tbody td{ padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.ag-table tbody tr:nth-child(odd){ background: rgba(255,255,255,.03); }
+.ag-table tbody tr:hover{ background: rgba(255,255,255,.05); }
+.ag-table td:nth-child(1){ width: 56px; opacity:.7; }
+.ag-table td:nth-child(3){ text-align:right; font-variant-numeric: tabular-nums; }
+
+.cards{ display:flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.card{
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  padding: 12px 14px;
+  min-width: 180px;
+}
+.card .label{ opacity:.65; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.card .value{ font-size: 28px; font-weight: 900; margin-top: 6px; }
+
+@media (max-width: 900px){
+  .ag-top3{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px){
+  .ag-table thead{ display:none; }
+  .ag-table, .ag-table tbody, .ag-table tr, .ag-table td{ display:block; width:100%; }
+  .ag-table tr{
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin: 10px 14px;
+    background: rgba(255,255,255,.06);
+  }
+  .ag-table tbody td{
+    border:0;
+    padding: 8px 0;
+    display:flex;
+    justify-content:space-between;
+    gap: 12px;
+  }
+  .ag-table tbody td:nth-child(1)::before{ content:"#"; opacity:.7; }
+  .ag-table tbody td:nth-child(2)::before{ content:"Équipe"; opacity:.7; }
+  .ag-table tbody td:nth-child(3)::before{ content:"Score"; opacity:.7; }
+}

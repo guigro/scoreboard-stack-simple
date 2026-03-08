@@ -1,0 +1,5 @@
+.DS_Store
+CLAUDE.md
+php-standalone/config.php
+php-standalone/cache/*
+!php-standalone/cache/.gitkeep
