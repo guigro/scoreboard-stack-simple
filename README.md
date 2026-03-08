@@ -34,3 +34,5 @@ URLs:
 
 Kiosk:
 - `scoreboard.php?kiosk=1&token=YOUR_KIOSK_TOKEN`
+
+Check the youtube demo : https://youtu.be/thLpJQFPBtg
